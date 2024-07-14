@@ -10,7 +10,8 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { bookingId } = params;
-  const { numGuests, observations, cabinId } = await getBooking(bookingId);
+  const { numGuests, observations, cabinId, hasBreakfast } =
+    await getBooking(bookingId);
   const { maxCapacity } = await getCabin(cabinId);
 
   return (
@@ -54,9 +55,19 @@ export default async function Page({ params }) {
             className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
           />
         </div>
+        <div className="flex items-center justify-start gap-5">
+          <label htmlFor="hasBreakfast">Want to have breakfast?</label>
+          <input
+            name="hasBreakfast"
+            type="checkbox"
+            value="hasBreakfast"
+            defaultChecked={hasBreakfast}
+            className="h-5 w-5 rounded border-gray-300"
+          />
+        </div>
 
         <div className="flex items-center justify-end gap-6">
-          <SubmitButton pendeingLabel="Updating...">
+          <SubmitButton pendingLabel="Updating...">
             Update reservation
           </SubmitButton>
         </div>

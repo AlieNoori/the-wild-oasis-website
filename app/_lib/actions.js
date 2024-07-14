@@ -56,7 +56,8 @@ export async function createReservation(reservationData, formData) {
     extrasPrice: 0,
     totalPrice: reservationData.cabinPrice,
     isPaid: false,
-    hasBreakfast: false,
+    hasBreakfast:
+      formData.get('hasBreakfast') === 'hasBreakfast' ? true : false,
     status: 'unconfirmed',
   };
 
@@ -95,7 +96,6 @@ export async function updateReservation(formData) {
 
   const guestBookings = await getBookings(session.user.guestId);
   const guestBookingIds = guestBookings.map(booking => booking.id);
-  console.log(guestBookings, guestBookingIds);
 
   const bookingId = Number(formData.get('bookingId'));
   if (!guestBookingIds.includes(bookingId))
@@ -104,7 +104,10 @@ export async function updateReservation(formData) {
   const updateData = {
     numGuests: Number(formData.get('numGuests')),
     observations: formData.get('observations').slice(0, 1000),
+    hasBreakfast:
+      formData.get('hasBreakfast') === 'hasBreakfast' ? true : false,
   };
+  console.log(updateData);
 
   const { error } = await supabase
     .from('bookings')

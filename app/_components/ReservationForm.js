@@ -84,6 +84,16 @@ function ReservationForm({ cabin, user }) {
           />
         </div>
 
+        <div className="flex items-center justify-start gap-5">
+          <label htmlFor="hasBreakfast">Want to have breakfast?</label>
+          <input
+            name="hasBreakfast"
+            type="checkbox"
+            value="hasBreakfast"
+            className="h-5 w-5 rounded border-gray-300"
+          />
+        </div>
+
         <div className="flex items-center justify-end gap-6">
           {!(startDate && endDate) ? (
             <p className="text-base text-primary-300">
