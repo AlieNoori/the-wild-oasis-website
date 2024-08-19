@@ -13,15 +13,23 @@ Built with with Next.js, Auth.js and Supabase.
 ## Installation
 
 1. First Clone the reop: 
-```git clone https://github.com/AlieNoori/the-wild-oasis-website.git```
+```bash
+git clone https://github.com/AlieNoori/the-wild-oasis-website.git
+```
 
 2. Navigate to the project directory:
-```cd the-wild-oasis-website```
+```bash
+cd the-wild-oasis-website
+```
 
 3. Install dependencies:
-```npm install```
+```bash
+npm install
+```
 
 4. Run dev server:
-```npm run dev```
+```bash
+npm run dev
+```
 
 ### You alos can visit the result on the https://the-wild-oasis-website-coral.vercel.app/
